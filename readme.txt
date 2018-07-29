@@ -1,5 +1,5 @@
 Instructions to get started:
-1. Create an schema named as db1 in mysql.
+1. Create an schema named as gamesdb in mysql.
 2. Run this java application:
 	GameController\src\main\java\com\games\GameControllerApplication.java
 3. Go to the browser(preferably Chrome) and hit http://localhost:8181/homeNg.html
