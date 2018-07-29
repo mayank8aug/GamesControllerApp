@@ -1,0 +1,64 @@
+.headerLabel {
+    cursor: pointer;
+}
+
+.boldClass {
+    font-weight: bold;
+}
+
+#inputDivId {
+    padding: 10px;
+}
+
+
+#searchId {
+    padding: 0.6rem;
+}
+
+.mainDiv {
+    height: 100%;
+    display: block;
+    overflow: auto;
+    width: 100%;
+}
+
+table {
+    display: block;
+    margin-bottom: 0 !important;
+}
+
+thead {
+    width: 99%;
+    display: table;
+    font-weight: bold;
+    height: 40px;
+    background: #DDD;
+}
+
+tbody {
+    overflow: auto;
+    display: block;
+    max-height: calc(100% - 40px);
+}
+
+tr {
+    width: 100%;
+    display: inline-table;
+}
+
+td {
+    width: 20%;
+}
+
+#paginationDivId {
+    border: 1px solid #DDD;
+    padding: 10px;
+    background: #DDD;
+    text-align: center;
+}
+
+#pageNoId {
+    width: 40px;
+    padding: 0 5px;
+    text-align: center;
+}

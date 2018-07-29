@@ -1,0 +1,72 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="scriptNg.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="styleNg.css"/>
+</head>
+<body>
+
+<div class="mainDiv container" ng-app="gameApp" ng-controller="mainController">
+    <div id="inputDivId">
+        <span class="boldClass">Quick Search:</span> <input id="searchId" type="text" placeholder="Search Game" ng-model="searchGame" ng-keyup="getPagedData()">
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <td class="headerLabel" ng-click="sortType === 'title' ? sortReverse = !sortReverse : sortReverse = false; sortType = 'title'; getPagedData()">
+                <span>
+                    Title
+                    <span ng-show="sortType == 'title' && !sortReverse" class="fa fa-angle-down"></span>
+                    <span ng-show="sortType == 'title' && sortReverse" class="fa fa-angle-up"></span>
+                </span>
+            </td>
+            <td class="headerLabel" ng-click="sortType === 'platform' ? sortReverse = !sortReverse : sortReverse = false; sortType = 'platform'; getPagedData()">
+                <span>
+                    Platform
+                    <span ng-show="sortType == 'platform' && !sortReverse" class="fa fa-angle-down"></span>
+                    <span ng-show="sortType == 'platform' && sortReverse" class="fa fa-angle-up"></span>
+                </span>
+            </td>
+            <td class="headerLabel" ng-click="sortType === 'score' ? sortReverse = !sortReverse : sortReverse = false; sortType = 'score'; getPagedData()">
+                <span>
+                    Score
+                    <span ng-show="sortType == 'score' && !sortReverse" class="fa fa-angle-down"></span>
+                    <span ng-show="sortType == 'score' && sortReverse" class="fa fa-angle-up"></span>
+                </span>
+            </td>
+            <td class="headerLabel" ng-click="sortType === 'genre' ? sortReverse = !sortReverse : sortReverse = false; sortType = 'genre'; getPagedData()">
+                <span>
+                    Genre
+                    <span ng-show="sortType == 'genre' && !sortReverse" class="fa fa-angle-down"></span>
+                    <span ng-show="sortType == 'genre' && sortReverse" class="fa fa-angle-up"></span>
+                </span>
+            </td>
+            <td class="headerLabel" ng-click="sortType === 'editorChoice' ? sortReverse = !sortReverse : sortReverse = false; sortType = 'editorChoice'; getPagedData()">
+                <span>
+                    Editor's Choice
+                    <span ng-show="sortType == 'editorChoice' && !sortReverse" class="fa fa-angle-down"></span>
+                    <span ng-show="sortType == 'editorChoice' && sortReverse" class="fa fa-angle-up"></span>
+                </span>
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="game in games">
+            <td>{{ game.title }}</td>
+            <td>{{ game.platform }}</td>
+            <td>{{ game.score }}</td>
+            <td>{{ game.genre }}</td>
+            <td>{{ game.editorChoice }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="paginationDivId">
+        Showing Page <input id="pageNoId" type="text" ng-model="pageNo" ng-blur="getPagedData()" ng-keypress="getPagedDataOnEnter($event)" /> of <span>{{ count }}</span>
+    </div>
+</div>
+
+</body>
+</html>
